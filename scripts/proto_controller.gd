@@ -15,6 +15,8 @@ extends CharacterBody3D
 @export var can_sprint : bool = false
 ## Can we press to enter freefly mode (noclip)?
 @export var can_freefly : bool = false
+## Can we press to toggle ragdoll?
+@export var can_ragdoll : bool = true
 
 @export_group("Speeds")
 ## Look around rotation speed.
@@ -43,6 +45,8 @@ extends CharacterBody3D
 @export var input_sprint : String = "sprint"
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
+## Name of Input Action to toggle ragdoll mode.
+@export var input_ragdoll : String = "ragdoll"
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -53,6 +57,7 @@ var freeflying : bool = false
 @onready var head: Node3D = $Head
 #@onready var collider: CollisionShape3D = $Collider
 @onready var collider: CollisionShape3D = $CollisionShape3D
+@onready var ragdoll: Ragdoll = $bunnyanim/Armature/Skeleton3D/Ragdoll
 
 func _ready() -> void:
 	check_input_mappings()
@@ -76,6 +81,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			enable_freefly()
 		else:
 			disable_freefly()
+	
+	# Toggle ragdoll mode
+	if can_ragdoll and Input.is_action_just_pressed(input_ragdoll):
+		ragdoll.toggle_ragdoll()
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else
@@ -177,3 +186,6 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+	if can_ragdoll and not InputMap.has_action(input_ragdoll):
+		push_error("Ragdoll disabled. No InputAction found for input_ragdoll: " + input_ragdoll)
+		can_ragdoll = false
