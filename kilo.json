@@ -1,0 +1,23 @@
+{
+	"mcpServers": {
+		"godot-ai": {
+			"command": "C:\\Users\\HP\\AppData\\Local\\Python\\pythoncore-3.14-64/pythonw.exe",
+			"args": [
+				"-c",
+				"import subprocess,sys; raise SystemExit(subprocess.call(sys.argv[1:], stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr, creationflags=0x08000000))",
+				"C:\\Users\\HP/.local/bin/uvx.exe",
+				"--link-mode",
+				"copy",
+				"--from",
+				"godot-ai==3.2.4",
+				"godot-ai",
+				"attach",
+				"--port",
+				"8000",
+				"--ws-port",
+				"9500"
+			],
+			"type": "stdio"
+		}
+	}
+}
