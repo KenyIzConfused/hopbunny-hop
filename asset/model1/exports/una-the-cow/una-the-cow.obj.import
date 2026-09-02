@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://de2b4ljekm6j1"
+path="res://.godot/imported/una-the-cow.obj-a29736547c17ceb3b221609290b5d66d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/una-the-cow.obj-a29736547c17ceb3b221609290b5d66d.mesh"]
+
+source_file="res://asset/model1/exports/una-the-cow/una-the-cow.obj"
+dest_files=["res://.godot/imported/una-the-cow.obj-a29736547c17ceb3b221609290b5d66d.mesh", "res://.godot/imported/una-the-cow.obj-a29736547c17ceb3b221609290b5d66d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
