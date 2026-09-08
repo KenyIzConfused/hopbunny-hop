@@ -5,6 +5,8 @@
 
 extends CharacterBody3D
 
+@onready var physical_bone_simulator_3d: PhysicalBoneSimulator3D = $bunnyanim/Armature/Skeleton3D/PhysicalBoneSimulator3D
+
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?

@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Root markdown files (except README, CONTRIBUTING)
+# CLAUDE.md is intentionally excluded — it contains local AI assistant context
+# and project-specific instructions not meant for public distribution. Final decision.
+/*.md
+!README.md
+!CONTRIBUTING.md
+
+# Godot MCP working directory
+.mcp/
+
+# Claude Code local config
+.claude/
+.mcp.json
+
+# Local npm config (publish-time overrides like min-release-age)
+.npmrc
+
+# Local-only Godot test project (ad hoc manual testing).
+# The committed shared fixture lives at tests/fixtures/godot-project/.
+.test-project/
+
+# Loose plans, scoping notes, follow-ups — local working docs only.
+plans/

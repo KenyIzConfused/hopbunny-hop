@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://d1adxlglew1sf"]
+
+[sub_resource type="Curve" id="Curve_pb6ip"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rceul"]
+curve = SubResource("Curve_pb6ip")
+
+[sub_resource type="Curve" id="Curve_yh0ux"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ycj30"]
+curve = SubResource("Curve_yh0ux")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ql73s"]
+emission_shape_scale = Vector3(20, 10, 20)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, -0.1, 0)
+linear_accel_curve = SubResource("CurveTexture_rceul")
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 4.5799975
+damping_max = 0.1
+scale_min = 0.099999994
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_ycj30")
+
+[sub_resource type="Gradient" id="Gradient_coxrc"]
+offsets = PackedFloat32Array(0, 0.4527027, 1)
+colors = PackedColorArray(0.87248844, 0.77036285, 0.582092, 1, 0.98475844, 0.8222036, 1.1551381e-06, 1, 0.45490196, 0.45490196, 0.45490196, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sdhfp"]
+gradient = SubResource("Gradient_coxrc")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oeq8l"]
+transparency = 1
+albedo_texture = SubResource("GradientTexture2D_sdhfp")
+
+[sub_resource type="QuadMesh" id="QuadMesh_v0s4m"]
+material = SubResource("StandardMaterial3D_oeq8l")
+
+[node name="wind" type="Node3D" unique_id=780415121]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1164449832]
+amount = 200
+lifetime = 5.0
+speed_scale = 0.5
+transform_align = 1
+transform_align_channel_filter = 1
+process_material = SubResource("ParticleProcessMaterial_ql73s")
+draw_pass_1 = SubResource("QuadMesh_v0s4m")
