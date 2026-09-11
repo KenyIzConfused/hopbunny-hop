@@ -31,6 +31,8 @@ extends CharacterBody3D
 @export var sprint_speed : float = 10.0
 ## How fast do we freefly?
 @export var freefly_speed : float = 25.0
+## Movement speed multiplier while in water.
+@export_range(0.0, 1.0, 0.05) var water_speed_multiplier : float = 0.5
 
 @export_group("Input Actions")
 ## Name of Input Action to move Left.
@@ -54,6 +56,7 @@ var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
+var in_water : bool = false
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
@@ -107,11 +110,13 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed(input_jump) and is_on_floor():
 			velocity.y = jump_velocity
 
-	# Modify speed based on sprinting
+	# Modify speed based on sprinting and water
 	if can_sprint and Input.is_action_pressed(input_sprint):
-			move_speed = sprint_speed
+		move_speed = sprint_speed
 	else:
 		move_speed = base_speed
+	if in_water:
+		move_speed *= water_speed_multiplier
 
 	# Apply desired movement to velocity
 	if can_move:
@@ -152,6 +157,11 @@ func enable_freefly():
 func disable_freefly():
 	collider.disabled = false
 	freeflying = false
+
+
+func set_water_slowdown(enabled: bool, multiplier: float = 1.0) -> void:
+	in_water = enabled
+	water_speed_multiplier = multiplier if enabled else 1.0
 
 
 func capture_mouse():

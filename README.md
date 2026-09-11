@@ -33,6 +33,11 @@ A first-person 3D game prototype built in **Godot 4.7** with **Forward Plus** re
   - `SandGust` nodes combine a `FogVolume` with procedural sand-colored fog and `GPUParticles3D` sand grains
   - `SandGustManager` spawns gusts on a timer with randomized position, speed, lifetime, and wind direction
   - Gusts move through the level and are reused after they expire
+- **Water zone system** (`scripts/water_zone.gd`, `Maps/Dunes/water_body.tscn`)
+  - `WaterZone` is an `Area3D`-based trigger that detects the player entering/exiting a water body
+  - Applies a smooth blue screen tint and narrows the camera FOV while the player is submerged
+  - Uses a `CanvasLayer`-based `ColorRect` overlay for reliable full-screen coloring
+  - Toggleable debug logging to verify enter/exit and camera detection
 - **Environment** (`sandstorm_environment.tres`)
   - Global fog disabled in favor of localized gust volumes
   - Warm sand-colored lighting

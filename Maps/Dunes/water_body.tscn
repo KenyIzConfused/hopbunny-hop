@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://u43p1ceixuj6"]
+
+[ext_resource type="Shader" uid="uid://uwt87eq326hs" path="res://addons/lowpolyterrain/shader/water.gdshader" id="1_6thkd"]
+[ext_resource type="Script" uid="uid://bg0klod0u0rmj" path="res://addons/lowpolyterrain/LowPolyTerrainChunk.gd" id="1_o1kdo"]
+[ext_resource type="Script" uid="uid://diij8fcnhst8u" path="res://scripts/water_zone.gd" id="3_qf18p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s51ed"]
+render_priority = 0
+shader = ExtResource("1_6thkd")
+shader_parameter/deep_water_color = Color(0, 0.4, 0.76, 1)
+shader_parameter/shallow_water_color = Color(0, 0.6, 0.7, 1)
+shader_parameter/foam_color = Color(0.9, 0.95, 1, 1)
+shader_parameter/roughness = 0.0
+shader_parameter/water_alpha = 1.0
+shader_parameter/wave_direction = Vector2(1, 1)
+shader_parameter/wave_speed = 1.00000004424012
+shader_parameter/wave_scale = 1.00000004587006
+shader_parameter/wave_height = 0.50000002375
+shader_parameter/low_poly_stepping = 6.0000002375
+shader_parameter/foam_distance = 0.05
+shader_parameter/foam_stepping = 100.0
+shader_parameter/depth_distance = 4.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ql73s"]
+lightmap_size_hint = Vector2i(102, 102)
+material = SubResource("ShaderMaterial_s51ed")
+size = Vector2(20, 20)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i4f4e"]
+size = Vector3(20, 10.727539, 20)
+
+[node name="waterNode" type="Node3D" unique_id=1494585306]
+
+[node name="WaterChunk" type="MeshInstance3D" parent="." unique_id=453112994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.52989, -16.244335, 70.25384)
+mesh = SubResource("PlaneMesh_ql73s")
+script = ExtResource("1_o1kdo")
+metadata/_custom_type_script = "uid://bg0klod0u0rmj"
+
+[node name="Area3D" type="Area3D" parent="WaterChunk" unique_id=1898273529]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("3_qf18p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterChunk/Area3D" unique_id=347098233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8637695, 0)
+shape = SubResource("BoxShape3D_i4f4e")
