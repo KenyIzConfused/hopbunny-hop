@@ -1,8 +1,3 @@
-# ProtoController v1.0 by Brackeys
-# CC0 License
-# Intended for rapid prototyping of first-person games.
-# Happy prototyping!
-
 extends CharacterBody3D
 
 @onready var physical_bone_simulator_3d: PhysicalBoneSimulator3D = $bunnyanim/Armature/Skeleton3D/PhysicalBoneSimulator3D

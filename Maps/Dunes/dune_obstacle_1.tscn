@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://r63860qmjsak"]
 
 [ext_resource type="Texture2D" uid="uid://x556d4hpt6h5" path="res://asset/duneChallenge/cacto_hipopo_LP/cacto_hipopo_LP/cacto_hipopo_LP_texture_pbr_v1_BaseColor.png" id="1_f0otl"]
+[ext_resource type="Script" uid="uid://iq0m2vabk07j" path="res://scripts/cactus_knockback.gd" id="2_0fdj2"]
+[ext_resource type="AudioStream" uid="uid://d0egxaje0p5ta" path="res://asset/sfx/punch-gaming-sound-effect-hd_RzlG1GE.mp3" id="3_kk38w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fdj2"]
 albedo_texture = ExtResource("1_f0otl")
@@ -52,6 +54,36 @@ shadow_mesh = SubResource("ArrayMesh_2w0sg")
 radius = 0.5576172
 height = 1.295044
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ql73s"]
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -3, 0)
+scale_min = 0.19999999
+scale_max = 0.59999996
+
+[sub_resource type="Gradient" id="Gradient_d2jud"]
+offsets = PackedFloat32Array(0.019662922, 0.497191, 0.997191)
+colors = PackedColorArray(1.0114361, 0, 0.21058747, 1, 1, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6abdm"]
+gradient = SubResource("Gradient_d2jud")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7771318, 0.16085272)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax7ky"]
+transparency = 1
+blend_mode = 1
+albedo_texture = SubResource("GradientTexture2D_6abdm")
+emission_enabled = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8f40t"]
+material = SubResource("StandardMaterial3D_ax7ky")
+
 [node name="duneObstacle1" type="Node3D" unique_id=1828795697]
 
 [node name="cacto_hipopo_LP" type="Node3D" parent="." unique_id=683567831]
@@ -62,7 +94,19 @@ material_override = SubResource("StandardMaterial3D_0fdj2")
 mesh = SubResource("ArrayMesh_i8m4a")
 
 [node name="pushZone" type="Area3D" parent="." unique_id=422056121]
+script = ExtResource("2_0fdj2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pushZone" unique_id=757134645]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.038513184, -0.06371814)
 shape = SubResource("CapsuleShape3D_ql73s")
+
+[node name="feedbackSound" type="AudioStreamPlayer3D" parent="." unique_id=60182657]
+stream = ExtResource("3_kk38w")
+
+[node name="feedbackVisual" type="GPUParticles3D" parent="." unique_id=1909983476]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ql73s")
+draw_pass_1 = SubResource("PlaneMesh_8f40t")

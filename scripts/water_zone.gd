@@ -7,6 +7,7 @@ class_name WaterZone
 ## Movement speed multiplier for characters in this zone.
 @export_range(0.0, 1.0, 0.05) var player_speed_multiplier: float = 0.2
 @export var debug_logs: bool = true
+@onready var water_feedback_sound: AudioStreamPlayer3D = $"../../waterFeedbackSound"
 
 var _overlay: ColorRect
 var _canvas: CanvasLayer
@@ -58,7 +59,7 @@ func _on_body_entered(body: Node3D) -> void:
 			_original_fov = _camera.fov
 	_in_water = true
 	if debug_logs:
-		print("[WaterZone] Enter: ", body.name)
+		water_feedback_sound.play()
 
 func _on_body_exited(body: Node3D) -> void:
 	if not (body is CharacterBody3D):
@@ -67,7 +68,7 @@ func _on_body_exited(body: Node3D) -> void:
 		body.call('set_water_slowdown', false)
 	_in_water = false
 	if debug_logs:
-		print("[WaterZone] Exit: ", body.name)
+		water_feedback_sound.stop()
 
 func _process(_delta: float) -> void:
 	if not _overlay or not _camera or _original_fov < 0:
