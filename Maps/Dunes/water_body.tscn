@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://uwt87eq326hs" path="res://addons/lowpolyterrain/shader/water.gdshader" id="1_6thkd"]
 [ext_resource type="Script" uid="uid://bg0klod0u0rmj" path="res://addons/lowpolyterrain/LowPolyTerrainChunk.gd" id="1_o1kdo"]
 [ext_resource type="Script" uid="uid://diij8fcnhst8u" path="res://scripts/water_zone.gd" id="3_qf18p"]
-[ext_resource type="AudioStream" uid="uid://5esgylmxiu16" path="res://asset/sfx/hello-im-under-the-water_4FMcD6D.mp3" id="4_dex6q"]
+[ext_resource type="AudioStream" uid="uid://1ngyhmll1ufl" path="res://asset/sfx/refreshing (audio-extractor.net).mp3" id="4_dex6q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s51ed"]
 render_priority = 0
@@ -30,7 +30,7 @@ subdivide_width = 10
 subdivide_depth = 10
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i4f4e"]
-size = Vector3(20, 10.727539, 20)
+size = Vector3(20, 50.997314, 20)
 
 [node name="waterNode" type="Node3D" unique_id=1494585306]
 
@@ -46,7 +46,7 @@ collision_mask = 2
 script = ExtResource("3_qf18p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaterChunk/Area3D" unique_id=347098233]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8637695, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.998657, 0)
 shape = SubResource("BoxShape3D_i4f4e")
 
 [node name="waterFeedbackSound" type="AudioStreamPlayer3D" parent="." unique_id=1555498033]

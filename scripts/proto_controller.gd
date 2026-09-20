@@ -23,7 +23,7 @@ extends CharacterBody3D
 ## Speed of jump.
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
-@export var sprint_speed : float = 10.0
+@export var sprint_speed : float = 20.0
 ## How fast do we freefly?
 @export var freefly_speed : float = 25.0
 ## Movement speed multiplier while in water.
@@ -58,6 +58,7 @@ var in_water : bool = false
 #@onready var collider: CollisionShape3D = $Collider
 @onready var collider: CollisionShape3D = $CollisionShape3D
 @onready var ragdoll: Ragdoll = $bunnyanim/Armature/Skeleton3D/Ragdoll
+
 
 func _ready() -> void:
 	check_input_mappings()

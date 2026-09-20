@@ -97,3 +97,14 @@ func toggle_ragdoll() -> void:
 		disable_ragdoll()
 	else:
 		enable_ragdoll()
+
+
+func apply_knockback(direction: Vector3, force: float) -> void:
+	var simulator = _get_physical_bone_simulator()
+
+	if not simulator:
+		return
+
+	for bone in simulator.get_children():
+		if bone is PhysicalBone3D:
+			bone.apply_central_impulse(direction * force)

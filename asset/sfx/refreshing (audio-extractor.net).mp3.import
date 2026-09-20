@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1ngyhmll1ufl"
+path="res://.godot/imported/refreshing (audio-extractor.net).mp3-29e5b49678ac92c03a84bce39feb3e6b.mp3str"
+
+[deps]
+
+source_file="res://asset/sfx/refreshing (audio-extractor.net).mp3"
+dest_files=["res://.godot/imported/refreshing (audio-extractor.net).mp3-29e5b49678ac92c03a84bce39feb3e6b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
