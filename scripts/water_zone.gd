@@ -36,8 +36,6 @@ func _create_overlay() -> void:
 	_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_overlay.color = Color(tint_color.r, tint_color.g, tint_color.b, 0.0)
 	_canvas.add_child(_overlay)
-	if debug_logs:
-		print("[WaterZone] Created overlay")
 
 func _find_camera(node: Node) -> Camera3D:
 	if node is Camera3D:
@@ -49,6 +47,7 @@ func _find_camera(node: Node) -> Camera3D:
 	return null
 
 func _on_body_entered(body: Node3D) -> void:
+	var proto 
 	if not (body is CharacterBody3D):
 		return
 	if body.has_method('set_water_slowdown'):
@@ -60,6 +59,12 @@ func _on_body_entered(body: Node3D) -> void:
 	_in_water = true
 	if debug_logs:
 		water_feedback_sound.play()
+	await get_tree().create_timer(4.5).timeout
+	if not is_inside_tree():
+		return
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().change_scene_to_file("res://ui/win_scene.tscn")
+	
 
 func _on_body_exited(body: Node3D) -> void:
 	if not (body is CharacterBody3D):
