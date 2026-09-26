@@ -10,6 +10,8 @@ var animation_player: AnimationPlayer = null
 var _original_head_transform: Transform3D
 var _recovery_transform: Transform3D
 
+@export var ragdoll_score_penalty: int = 25
+
 func _ready() -> void:
 	animation_player = _find_animation_player()
 	if not animation_player:
@@ -45,7 +47,9 @@ func enable_ragdoll() -> void:
 	if is_ragdoll:
 		return
 	is_ragdoll = true
-
+	
+	player.add_score(-ragdoll_score_penalty)
+	
 	if animation_player:
 		animation_player.stop()
 

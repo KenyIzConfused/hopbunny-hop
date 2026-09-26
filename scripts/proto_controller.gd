@@ -1,6 +1,9 @@
 extends CharacterBody3D
 
 @onready var physical_bone_simulator_3d: PhysicalBoneSimulator3D = $bunnyanim/Armature/Skeleton3D/PhysicalBoneSimulator3D
+@onready var animation_player: AnimationPlayer = $bunnyanim/AnimationPlayer
+@onready var timer_label: Label = $Control/VBoxContainer/timerLabel
+@onready var score_label: Label = $Control/VBoxContainer/scoreLabel
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -28,6 +31,14 @@ extends CharacterBody3D
 @export var freefly_speed : float = 25.0
 ## Movement speed multiplier while in water.
 @export_range(0.0, 1.0, 0.05) var water_speed_multiplier : float = 0.5
+
+var elapsed_time: float = 0.0
+var score: int = 0
+
+var score_timer: float = 0.0
+var score_requirement: int = 15
+var score_interval: float = 10.0
+var score_at_interval_start: int = 0
 
 @export_group("Input Actions")
 ## Name of Input Action to move Left.
@@ -86,8 +97,45 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Toggle ragdoll mode
 	if can_ragdoll and Input.is_action_just_pressed(input_ragdoll):
 		ragdoll.toggle_ragdoll()
+	
+func add_score(points: int) -> void:
+	score += points
+	score_label.text = "Score: %d" % score
 
 func _physics_process(delta: float) -> void:
+
+	# =========================
+	# GAME TIMER
+	# =========================
+	elapsed_time += delta
+
+	var minutes: int = int(elapsed_time) / 60
+	var seconds: int = int(elapsed_time) % 60
+
+	timer_label.text = "Time: %02d:%02d" % [minutes, seconds]
+
+
+	# =========================
+	# SCORE TIMER
+	# =========================
+	score_timer += delta
+
+	score_label.text = "Score: %d" % score
+
+	if score_timer >= score_interval:
+		score_timer -= score_interval
+
+		var points_earned: int = score - score_at_interval_start
+
+		if points_earned >= score_requirement:
+			print("Requirement met! +%d points" % points_earned)
+		else:
+			print("Requirement failed! Only earned %d/%d" % [
+				points_earned,
+				score_requirement
+			])
+
+		score_at_interval_start = score
 	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
@@ -105,6 +153,7 @@ func _physics_process(delta: float) -> void:
 	if can_jump:
 		if Input.is_action_just_pressed(input_jump) and is_on_floor():
 			velocity.y = jump_velocity
+			add_score(15)
 
 	# Modify speed based on sprinting and water
 	if can_sprint and Input.is_action_pressed(input_sprint):
@@ -118,6 +167,15 @@ func _physics_process(delta: float) -> void:
 	if can_move:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
 		var move_dir := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		
+		if input_dir.length() > 0:
+			if animation_player.current_animation != "ArmatureAction_001":
+				animation_player.play("ArmatureAction_001")
+		else:
+			if animation_player.current_animation != "ArmatureAction":
+				animation_player.play("ArmatureAction")
+		
+		
 		if move_dir:
 			velocity.x = move_dir.x * move_speed
 			velocity.z = move_dir.z * move_speed
