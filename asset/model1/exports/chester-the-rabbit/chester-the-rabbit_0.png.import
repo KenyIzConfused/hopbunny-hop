@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boetmlrgakmxh"
+uid="uid://wpxy6wi7macm"
 path.s3tc="res://.godot/imported/chester-the-rabbit_0.png-a686b938f01924b74c89ab651a6b9afa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "61cf76e4dc79838f281ee5386436e326"
 }
 
 [deps]

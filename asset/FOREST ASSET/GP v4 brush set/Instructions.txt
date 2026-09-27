@@ -1,0 +1,30 @@
+How to install the brushes
+
+I. Simple Way:
+
+1. Put the brushes files (they end with .asset.blend) in a folder of your choice and name it something like 'Original Brush Pack'
+2. Open Blender, and under the 'Edit' top-left menu choose 'Preferences'
+3. Select the 'File Paths' section
+4. Under 'Asset Libraries' click on the Plus sign button on the right to add a new Asset Library
+5. Navigate inside the folder with the brushes and click the 'Add Asset Library' button
+6. If you can see a 'Save Preferences' button in the bottom-left, click on it
+7. Done.
+
+II. Crazy Way:
+
+A. If it's your first time creating or installing Brushes:
+
+1. Choose any Grease Pencil brush
+2. Go to the 'Tool' tab in the 'Properties' panel (on the right side usually)
+3. On the right of the brush icon, click on the arrow button and choose 'Duplicate Asset'
+4. You can now click on the arrow button and choose 'Delete Asset'
+5. Open 'Preferences' under the 'Edit' top-left menu
+6. Choose the 'File Paths' section, and under 'Asset Libraries' note the 'Path'
+7. Navigate to the folder in the 'Path' from your documents browser
+8. Inside that folder there should be a 'Saved' folder, enter it
+9. Enter the 'Brushes' folder inside the 'Saved' folder
+10. Paste the individual brush asset files there (they end with .asset.blend)
+
+B. If you created or installed brushes before:
+
+Start from step 5.

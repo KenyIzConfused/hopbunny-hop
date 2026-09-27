@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://du3a12n0f583n"]
+[gd_scene format=3 uid="uid://o0j4osen8gw7"]
 
 [ext_resource type="Script" uid="uid://dxq4p56omxx80" path="res://addons/lowpolyterrain/LowPolyTerrainManager.gd" id="1_qqrqb"]
 [ext_resource type="PackedScene" uid="uid://b1a40r4bp2i10" path="res://characters/palayable/player.tscn" id="2_2oked"]

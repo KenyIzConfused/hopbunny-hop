@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d0l6e75j7uuoc"]
+
+[ext_resource type="PackedScene" uid="uid://q1wqocy15iab" path="res://Maps/Forest/rocky mountain.glb" id="1_u3bek"]
+
+[node name="Node3D" type="Node3D" unique_id=1503149242]
+
+[node name="rocky mountain" parent="." unique_id=1226322012 instance=ExtResource("1_u3bek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6863928, 0, 0.33248508)

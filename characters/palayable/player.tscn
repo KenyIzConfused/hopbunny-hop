@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b1a40r4bp2i10"]
 
-[ext_resource type="Script" uid="uid://bhe2lwk8am0ew" path="res://scripts/proto_controller.gd" id="1_ae0go"]
+[ext_resource type="Script" uid="uid://dxgimafxp4bf0" path="res://scripts/hop_controller.gd" id="1_n0c2o"]
 [ext_resource type="Texture2D" uid="uid://byomrgnjkknfr" path="res://asset/model1/freemodelpack/bunnydutch.png" id="2_bl1df"]
 [ext_resource type="Script" uid="uid://cgxrbei3l1f0a" path="res://scripts/ragdoll.gd" id="3_n0c2o"]
 
@@ -1057,13 +1057,10 @@ _data = {
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 collision_layer = 2
 collision_mask = 249
-script = ExtResource("1_ae0go")
-can_sprint = true
-can_freefly = true
+script = ExtResource("1_n0c2o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1636918482]
 transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, 0)
-visible = false
 shape = SubResource("ConvexPolygonShape3D_ae0go")
 
 [node name="bunnyanim" type="Node3D" parent="." unique_id=2000152279]
@@ -1269,12 +1266,12 @@ script = ExtResource("3_n0c2o")
 [node name="PhysicalBoneSimulator3D" type="PhysicalBoneSimulator3D" parent="bunnyanim/Armature/Skeleton3D" unique_id=12094820]
 
 [node name="ChestBone" type="PhysicalBone3D" parent="bunnyanim/Armature/Skeleton3D/PhysicalBoneSimulator3D" unique_id=1173618797]
-transform = Transform3D(4.4283956e-07, -5, -1.249773e-06, -4.999983, -4.3955214e-07, -0.013145922, 0.013145922, 1.2509345e-06, -4.999983, 0.016514556, 1.7513423, 1.4470873)
+transform = Transform3D(4.4220388e-07, -5, -1.2416504e-06, -4.999983, -4.3893783e-07, -0.013145922, 0.013145922, 1.24281e-06, -4.999983, 0.016538361, 1.7513423, 1.4470873)
 visible = false
 collision_layer = 4
-joint_offset = Transform3D(1.0000001, 1.4210855e-14, 7.450581e-09, -1.4210855e-14, 1, -2.273737e-13, -7.450581e-09, 2.2737368e-13, 1.0000001, 4.5323468e-08, 8.7214954e-05, 0.099999964)
+joint_offset = Transform3D(1.0000001, 1.4210855e-14, 7.450581e-09, -1.4210855e-14, 1, -2.273737e-13, -7.450581e-09, 2.2737368e-13, 1.0000001, 4.5323766e-08, 9.1976035e-05, 0.099999964)
 joint_rotation = Vector3(2.2737368e-13, 7.4505797e-09, -1.4210853e-14)
-body_offset = Transform3D(4.999999, -3.0378288e-07, 1.1827797e-07, -1.7974526e-07, 6.556911e-07, -4.999999, 1.5320681e-07, 5.0000014, 2.0669358e-07, -2.3841858e-07, 0.4999997, -0.00043609552)
+body_offset = Transform3D(4.999999, -3.0441853e-07, 1.1827797e-07, -1.7974526e-07, 6.475666e-07, -4.999999, 1.5384246e-07, 5.0000014, 1.9856907e-07, -2.3841858e-07, 0.4999997, -0.00045990013)
 bone_name = "Bone"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bunnyanim/Armature/Skeleton3D/PhysicalBoneSimulator3D/ChestBone" unique_id=1495348033]
@@ -1300,12 +1297,12 @@ transform = Transform3D(1.0000005, -2.115965e-06, -2.9802322e-07, 1.0699034e-05,
 shape = SubResource("CapsuleShape3D_p06qa")
 
 [node name="leftLegBone" type="PhysicalBone3D" parent="bunnyanim/Armature/Skeleton3D/PhysicalBoneSimulator3D" unique_id=769444937]
-transform = Transform3D(-1.4256366e-06, 5, -2.2080596e-07, 0.20422281, 2.7885122e-07, 4.9958277, 4.9958277, 1.4154284e-06, -0.20422281, 0.46412507, 0.8621326, 1.3762767)
+transform = Transform3D(-1.4391971e-06, 5, -2.201626e-07, 0.20422281, 2.7876226e-07, 4.9958277, 4.9958277, 1.4290035e-06, -0.20422281, 0.46412507, 0.8621326, 1.3762767)
 visible = false
 collision_layer = 4
 joint_type = 3
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6640528e-10, 1.08221165e-07, 0.064966425)
-body_offset = Transform3D(4.9999995, -1.31385605e-08, 1.847744e-06, 1.847744e-06, 3.1692326e-07, -4.9999995, -3.080495e-07, 5.000002, -7.1794034e-08, -1.1920929e-07, 0.32483208, -5.364418e-07)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6640557e-10, 1.082128e-07, 0.064966425)
+body_offset = Transform3D(4.9999995, 4.2200554e-10, 1.847744e-06, 1.847744e-06, 3.1756662e-07, -4.9999995, -3.2161006e-07, 5.000002, -7.115068e-08, -1.1920929e-07, 0.32483208, -5.364418e-07)
 bone_name = "Bone.007"
 joint_constraints/angular_limit_enabled = false
 joint_constraints/angular_limit_upper = 90.0

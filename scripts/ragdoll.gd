@@ -1,6 +1,7 @@
 extends Node3D
 class_name Ragdoll
 
+
 @onready var skeleton: Skeleton3D = get_parent()
 @onready var player: CharacterBody3D = skeleton.get_parent().get_parent().get_parent()
 @export var head: Node3D
