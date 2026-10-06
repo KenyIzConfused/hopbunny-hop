@@ -1,0 +1,68 @@
+[gd_resource type="Theme" format=3 uid="uid://cqusth4yxw25"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ktuk"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.81960785, 0.6509804, 0.47058824, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.43137255, 0.3019608, 0.21960784, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.46666667)
+shadow_size = 10
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rchj6"]
+content_margin_left = 20.0
+content_margin_top = 8.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.7254902, 0.56078434, 0.4, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.35686275, 0.2509804, 0.1882353, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g6yf"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+content_margin_right = 20.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6039216, 0.45490196, 0.32156864, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.2901961, 0.2, 0.14901961, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.33333334)
+shadow_size = 3
+shadow_offset = Vector2(0, 2)
+
+[resource]
+Button/colors/font_color = Color(1, 0.9529412, 0.8627451, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0.35686275, 0.2509804, 0.1882353, 1)
+Button/constants/outline_size = 8
+Button/font_sizes/font_size = 34
+Button/styles/hover = SubResource("StyleBoxFlat_3ktuk")
+Button/styles/normal = SubResource("StyleBoxFlat_rchj6")
+Button/styles/pressed = SubResource("StyleBoxFlat_8g6yf")
