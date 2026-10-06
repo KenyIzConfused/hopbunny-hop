@@ -29,6 +29,10 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/lowpolyterrain/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 left={

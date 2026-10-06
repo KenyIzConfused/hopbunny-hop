@@ -24,7 +24,7 @@ extends CharacterBody3D
 ## Normal speed.
 @export var base_speed : float = 7.0
 ## Speed of jump.
-@export var jump_velocity : float = 4.5
+@export var jump_velocity : float = 3.0
 ## How fast do we run?
 @export var sprint_speed : float = 20.0
 ## How fast do we freefly?
@@ -153,7 +153,7 @@ func _physics_process(delta: float) -> void:
 	if can_jump:
 		if Input.is_action_just_pressed(input_jump) and is_on_floor():
 			velocity.y = jump_velocity
-			add_score(15)
+			add_score(1)
 
 	# Modify speed based on sprinting and water
 	if can_sprint and Input.is_action_pressed(input_sprint):
