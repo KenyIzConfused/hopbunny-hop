@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c7ib54iitwmv3"]
+
+[sub_resource type="Animation" id="Animation_wojnn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGCombiner3D/CSGBox3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.0605037, 0, -0.4120434)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGCombiner3D/CSGBox3D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.0580165, 0, -0.55583054)]
+}
+
+[sub_resource type="Animation" id="Animation_k0x04"]
+resource_name = "challenge"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGCombiner3D/CSGBox3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.6089659, 0, -0.4120434), Vector3(-1.0280066, 0, -0.4120434)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGCombiner3D/CSGBox3D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.4954562, 0, -0.4190002), Vector3(0.98353434, 0, -0.4190002)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p73e2"]
+_data = {
+&"RESET": SubResource("Animation_wojnn"),
+&"challenge": SubResource("Animation_k0x04")
+}
+
+[node name="Obstacle 2" type="Node3D" unique_id=1266972317]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=815343490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+use_collision = true
+collision_mask = 2
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1915372858]
+transform = Transform3D(2.0323377, 0, 0, 0, 0.42310584, 0, 0, 0, 8.857074, -3.0605037, 0, -0.4120434)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=209319621]
+transform = Transform3D(2.0323377, 0, 0, 0, 0.42310584, 0, 0, 0, 8.857074, 3.0580165, 0, -0.55583054)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=74900631]
+libraries/ = SubResource("AnimationLibrary_p73e2")
+autoplay = &"challenge"
