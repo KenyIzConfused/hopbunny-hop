@@ -153,7 +153,7 @@ func _physics_process(delta: float) -> void:
 	if can_jump:
 		if Input.is_action_just_pressed(input_jump) and is_on_floor():
 			velocity.y = jump_velocity
-			add_score(1)
+			add_score(5)
 
 	# Modify speed based on sprinting and water
 	if can_sprint and Input.is_action_pressed(input_sprint):
