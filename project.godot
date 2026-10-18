@@ -13,7 +13,7 @@ config_version=5
 config/name="Hop Bunny, Hop"
 run/main_scene="uid://14tnhsvr7lxo"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cd38staeldrvi"
 
 [display]
 
