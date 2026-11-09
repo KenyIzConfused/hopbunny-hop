@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://yowf4ryfg57n"]
+
+[ext_resource type="Texture2D" uid="uid://c7bwh12gpliq8" path="res://textures/2525425.jpg" id="1_06xeu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwwpp"]
+transparency = 1
+blend_mode = 1
+albedo_texture = ExtResource("1_06xeu")
+emission_enabled = true
+emission = Color(0.89007014, 0.7765844, 0.23702317, 1)
+emission_energy_multiplier = 2.0
+billboard_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_chrmo"]
+gravity = Vector3(0, 2, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_7mdw6"]
+
+[node name="fire particles" type="Node3D" unique_id=155152960]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1400761287]
+material_override = SubResource("StandardMaterial3D_lwwpp")
+amount = 10
+collision_base_size = 5.4
+process_material = SubResource("ParticleProcessMaterial_chrmo")
+draw_pass_1 = SubResource("QuadMesh_7mdw6")
